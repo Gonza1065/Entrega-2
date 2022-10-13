@@ -1,0 +1,100 @@
+body {
+  color: white;
+  background-color: black;
+  font-family: "Raleway", sans-serif;
+}
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.titulo a {
+  color: white;
+}
+.titulo a:hover {
+  color: rgba(255, 255, 255, 0.432);
+  transition: 0.3s;
+}
+.titulo img {
+  width: 50px;
+  margin-left: 15px;
+}
+.nav__links {
+  margin-top: 30px;
+  list-style: none;
+  text-align: center;
+}
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+/* .nav__links li a {
+  transition: all 1.5 ease 0s;
+  color: #edf0f1;
+} */
+.nav__links li a:hover {
+  color: #dde8ee;
+  transition-duration: 1s;
+}
+.boton {
+  text-align: center;
+}
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 200px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 20px;
+}
+.count {
+  display: flex;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.botones {
+  margin-left: 15px;
+}
+.agregar {
+  margin-bottom: 5px;
+}
+.card img {
+  height: 250px;
+  width: 250px;
+}
+/* TITULO, PRECIO Y CATEGORIA */
+.card-info {
+  color: black;
+}
+.active {
+  color: red;
+}
+/* DETALLES SOLO DE UNA PRENDA */
+.container-detail {
+  text-align: center;
+  margin-top: 50px;
+}
+/* IMAGEN DE LA UNICA PRENDA */
+.container-detail img {
+  height: 150px;
+  width: 150px;
+}
+/* LOS TRES PRODUCTOS EN LA MISMA LINEA */
+.item-list {
+  display: flex;
+  justify-content: center;
+}
+.home {
+  text-align: center;
+  border-style: double;
+  color: white;
+}
+.boton-de-detalles {
+  text-align: center;
+}
+.boton-de-detalles a:hover {
+  color: black;
+  transition: 0.3s;
+}
