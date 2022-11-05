@@ -1,37 +1,50 @@
 import imagen from "../../multimedia/vaypool.png";
 import CartWidget from "./CartWidget";
 import "../../../src/index.css";
-import {Link, NavLink} from "react-router-dom"
+import { Link, NavLink } from "react-router-dom";
+import { baseDeDatos } from "../../service/fireBaseConfig";
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+
 function NavBar() {
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const collectionCategory = collection(baseDeDatos, "categorias");
+    getDocs(collectionCategory)
+      .then((res) => {
+        const categorias = res.docs.map((cat) => {
+          return {
+            id: cat.id,
+            ...cat.data(),
+          };
+        });
+        setCategories(categorias);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <div className="titulo">
-        <Link to="/category/Home">
+        <Link to="/">
           <h1>Vaypool</h1>
         </Link>
         <img src={imagen} />
       </div>
-      <nav>
-        <ul class="nav__links">
+      <div className="contraste">
+        <div className="nav__links">
           <li>
-            <NavLink to="/category/Home">Home</NavLink>
-          </li>
-          <li>
+            <Link to="/">Home</Link>
             <NavLink to="/category/Zapatillas">Zapatillas</NavLink>
-          </li>
-          <li>
             <NavLink to="/category/Remeras">Remeras</NavLink>
-          </li>
-          <li>
             <NavLink to="/category/Gorras">Gorras</NavLink>
-          </li>
-          <div className="carrito-de-compras">
             <NavLink to="/cart">
               <CartWidget />
             </NavLink>
-          </div>
-        </ul>
-      </nav>
+          </li>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,7 +1,13 @@
+import ItemListCointainer from "./ItemListContainer";
 const Home = () => {
   return (
-    <div className="home">
-      <h1>Hay diferentes secciones en esta tienda! Entre al que mas le guste</h1>
+    <div>
+      <div className="titulo-de-tienda">
+        <h1>Tienda: Ropa deportiva</h1>
+      </div>
+      <div className="mostrar-los-productos">
+        <ItemListCointainer />
+      </div>
     </div>
   );
 };

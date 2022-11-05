@@ -1,40 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import "../../../src/index.css";
 
-function ItemCount(props) {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(props.initial);
-  console.log(count);
+const ItemCount = ({ stock, initial = 1, prueba }) => {
+  const [count, setCount] = useState(initial);
   const agregar = () => {
-    setCount(count + 1);
+    count < stock && setCount(count + 1);
   };
   const restar = () => {
-    setCount(count - 1);
+    count > 1 && setCount(count - 1);
   };
+  const add = () => {
+    prueba(count);
+  };
+  useEffect(() => {
+    setCount(initial);
+  }, [initial]);
   return (
     <div className="count">
       <p>Carrito: {count}</p>
       <div className="botones">
         <div className="agregar">
           <Button
-            disabled={count === props.stock}
+            disabled={count === stock}
             variant="outline-warning"
             onClick={agregar}
           >
             Agregar
           </Button>{" "}
         </div>
-        <Button
-          disabled={count <= props.initial}
-          onClick={restar}
-          variant="warning"
-        >
+        <Button onClick={restar} variant="warning">
           Eliminar
         </Button>{" "}
+        <Button onClick={() => prueba(count)}>Agregar al Carrito</Button>
       </div>
     </div>
   );
-}
+};
 
 export default ItemCount;

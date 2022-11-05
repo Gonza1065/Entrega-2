@@ -1,8 +1,6 @@
 import React from "react";
 import Item from "./Item";
 const ItemList = (props) => {
-  console.log(props);
-  //mapeo de los productos
   return (
     <div className="item-list">
       {props.items.map((prod) => {

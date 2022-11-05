@@ -1,6 +1,5 @@
 body {
-  color: white;
-  background-color: black;
+  background: linear-gradient(black, grey);
   font-family: "Raleway", sans-serif;
 }
 .titulo {
@@ -20,33 +19,49 @@ body {
   margin-left: 15px;
 }
 .nav__links {
-  margin-top: 30px;
-  list-style: none;
-  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .nav__links li {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-left: 120px;
+  margin-right: 120px;
   padding: 0px 20px;
 }
-/* .nav__links li a {
-  transition: all 1.5 ease 0s;
-  color: #edf0f1;
-} */
+.nav__links li a {
+  color: white;
+}
 .nav__links li a:hover {
-  color: #dde8ee;
-  transition-duration: 1s;
+  color: burlywood;
+  transition-duration: 0.5s;
+}
+.contraste {
+  background: linear-gradient(
+    rgba(245, 242, 242, 0),
+    rgba(128, 128, 128, 0.24)
+  );
 }
 .boton {
   text-align: center;
 }
+footer {
+  background-color: grey;
+}
 .redes-sociales {
   display: flex;
-  justify-content: center;
   justify-content: space-between;
-  margin-top: 200px;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-bottom: 20px;
+}
+.redes-sociales a {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+.redes-sociales img {
+  height: 40px;
+  width: 40px;
 }
 .count {
   display: flex;
@@ -60,21 +75,36 @@ body {
 .agregar {
   margin-bottom: 5px;
 }
+
+/* NOMBRE DE LA PRENDA, PRECIO Y CATEGORIA */
+.card {
+  margin-bottom: 50px;
+}
+.imagen-de-la-prenda-sola {
+  margin-left: 30px;
+}
+.card-info {
+  text-align: center;
+  color: black;
+}
 .card img {
   height: 250px;
   width: 250px;
 }
-/* TITULO, PRECIO Y CATEGORIA */
-.card-info {
-  color: black;
+.boton-de-detalles {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 15px;
 }
 .active {
-  color: red;
+  color: white;
 }
 /* DETALLES SOLO DE UNA PRENDA */
 .container-detail {
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 50px;
+  color: white;
 }
 /* IMAGEN DE LA UNICA PRENDA */
 .container-detail img {
@@ -84,17 +114,118 @@ body {
 /* LOS TRES PRODUCTOS EN LA MISMA LINEA */
 .item-list {
   display: flex;
+  margin-left: 100px;
+  margin-right: 100px;
   justify-content: center;
 }
-.home {
+.titulo-de-tienda {
+  color: white;
   text-align: center;
-  border-style: double;
+}
+.mostrar-los-productos {
+  text-align: center;
+}
+/* BOTON DE "VER DETALLES" */
+.unidades-agregadas {
   color: white;
 }
-.boton-de-detalles {
+/* CARGANDO... */
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.body-de-la-lista-de-productos-añadidos {
+  margin-bottom: 30px;
+}
+.titulo-lista-de-productos {
+  color: white;
+  display: flex;
+  margin-left: 80px;
+  justify-content: space-between;
+  margin-right: 230px;
+}
+.linea-de-titulos hr {
+  background-color: rgba(231, 130, 130, 0.658);
+  height: 15px;
+}
+.productos-añadidos {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
+}
+.productos-añadidos img {
+  width: 200px;
+  height: 200px;
+}
+.detalles-del-producto-añadido {
+  color: white;
+  margin-left: 30px;
+}
+/* PRECIO FINAL */
+.precio-total {
+  color: white;
+  margin-top: 10px;
   text-align: center;
 }
-.boton-de-detalles a:hover {
-  color: black;
-  transition: 0.3s;
+.precio-total hr {
+  background-color: rgba(231, 130, 130, 0.658);
+  height: 15px;
+}
+/* BOTON DE ELIMINAR CARRITO */
+.eliminar-el-carrito {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.eliminar-el-carrito a {
+  color: white;
+}
+.finalizar-compra {
+  text-align: start;
+  margin-left: 80px;
+}
+/* FORMULARIO */
+.body-de-el-formulario {
+  margin-bottom: 75px;
+}
+.titulo-de-formulario {
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.titulo-de-formulario hr {
+  height: 20px;
+}
+.subtitulo {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.formulario {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.formulario input {
+  border: 2px;
+  border-style: solid;
+}
+.boton {
+  height: 32px;
+  padding: 5px;
+}
+.boton-finalizar {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.numero-de-seguimiento {
+  color: white;
+  text-align: center;
+  margin-bottom: 240px;
 }

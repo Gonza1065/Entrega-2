@@ -1,29 +1,42 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import { products } from "../mock/productosMock";
 import { useParams } from "react-router-dom";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import { collection, getDocs, where, query } from "firebase/firestore";
+import { baseDeDatos } from "../../service/fireBaseConfig";
 const ItemListCointainer = () => {
   const [items, setItems] = useState([]);
-
-  const valor = useParams();
-  console.log(valor.categoryName);
-
+  const [loading, setLoading] = useState(true);
   const { categoryName } = useParams();
   useEffect(() => {
-    const traerProductos = () => {
-      return new Promise((res, rej) => {
-        const prodFiltrados = products.filter((prod) => prod.category === categoryName);
-        res(categoryName ? prodFiltrados : products);
-      });
-    };
-    traerProductos()
+    const collectionProd = collection(baseDeDatos, "productos");
+    const ref = categoryName
+      ? query(collectionProd, where("category", "==", categoryName))
+      : collectionProd;
+    getDocs(ref)
       .then((res) => {
-        setItems(res);
+        const products = res.docs.map((prod) => {
+          return {
+            id: prod.id,
+            ...prod.data(),
+          };
+        });
+        setItems(products);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [categoryName]);
+  if (loading) {
+    return (
+      <div className="loading">
+        <ClimbingBoxLoader color="white" />
+      </div>
+    );
+  }
   return (
     <main>
       <div className="item-list-container">
